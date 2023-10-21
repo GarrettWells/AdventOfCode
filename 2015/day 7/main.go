@@ -1,3 +1,5 @@
+// The design is to lazily evaluate the circuits so we only need to compute the path of the circuit we're interested in
+
 package main
 
 import (
