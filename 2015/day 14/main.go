@@ -69,17 +69,17 @@ func part1(input string) int {
 
 func part2(input string) int {
 	reindeers := createReindeer(input)
-	for i := 0; i < 2503; i++ {
+	for step := 0; step < 2503; step++ {
 		for idx, _ := range reindeers {
 			reindeerStep(&reindeers[idx])
 		}
 
 		maxDistance := 0
 		var reindeerWithMaxDistance *Reindeer
-		for _, reindeer := range reindeers {
-			if maxDistance < reindeer.distanceTraveled {
-				maxDistance = reindeer.distanceTraveled
-				reindeerWithMaxDistance = &reindeer
+		for i, _ := range reindeers {
+			if maxDistance < reindeers[i].distanceTraveled {
+				maxDistance = reindeers[i].distanceTraveled
+				reindeerWithMaxDistance = &reindeers[i]
 			}
 		}
 		reindeerWithMaxDistance.points++
@@ -96,6 +96,6 @@ func part2(input string) int {
 
 func main() {
 	input := util.ReadFile("input.txt")
-	fmt.Println(part1(input))
+	// fmt.Println(part1(input))
 	fmt.Println(part2(input))
 }
